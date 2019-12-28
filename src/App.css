@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.options span{
+  background: lightgreen;
+  border-radius: 16px;
+  padding: 5px 12px;
+  margin: 5px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.options{
+  border:1px solid rgb(187, 187, 187);
+  border-radius: 5px;
+  padding:20px 10px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  opacity: 0;
+}
+.show-options{
+  opacity: 1;
+}
+.clear{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.options span:hover{
+  cursor: pointer;
+}
+.fa-angle-down:hover{
+  cursor: pointer;
+}
+.fa-times-circle:hover{
+  cursor: pointer;
+}
+/*ADDING OPTIONS ANIMATIONS*/
+.selected-area{
+  display: flex;
+  flex-wrap: wrap;
+}
+.selectedOptions{
+  margin:25px 0px;
+  border: 2px solid rgb(53, 211, 53);
+  border-radius: 16px;
+  padding: 5px 15px;
+  margin: 5px;
+}
+.selected{
+  display: flex;
+  padding:10px;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
