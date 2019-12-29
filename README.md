@@ -6,6 +6,9 @@ There is a text box, with some (static) default options in dropdown, also can be
 - ~~Clicking default options won't do anything~~
 - ~~selected options cannot be added as default options~~
 
+### Demo
+https://saspian.github.io/adding-tag
+
 ## Available Scripts
 
 In the project directory, you can run:
