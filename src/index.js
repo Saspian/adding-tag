@@ -9,10 +9,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // FOR EVENT HANDELING
 window.addEventListener('click',(e)=>{
     if((document.querySelector('#form-input').contains(e.target)) || (document.querySelector('.fa-angle-down').contains(e.target))){
-        if(document.querySelector('.options').classList.contains('show-options')) {
-            console.log('it is already shown');
-        }
-        else{
+        if(!document.querySelector('.options').classList.contains('show-options')) {
             document.querySelector('.options').classList.add('show-options');
         }
     }
@@ -22,7 +19,4 @@ window.addEventListener('click',(e)=>{
         }
     }
 })
-
-
-
 serviceWorker.unregister();

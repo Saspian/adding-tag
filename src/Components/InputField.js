@@ -8,10 +8,12 @@ const InputField = ({changeHandler, resetValue, values, showOptions, addOptions}
         <form>
         <label className="selected-area"></label>
         <div className="form-container input-group">
-            <input type="text" name="q" value={values} className="form-control form-control-lg" id="form-input" onChange={changeHandler} aria-describedby="basic-addon2"/>
+            <input type="text" name="q" value={values} className="form-control form-control-lg" id="form-input" onChange={changeHandler} />
             <div className="input-group-append">
-                <button className="btn btn-secondary fas fa-check-circle" type="button" onClick={addOptions}></button>
-                <button className="btn btn-secondary fas fa-times-circle" type="button" onClick={resetValue}></button>
+                <div className="btn-group">
+                    <button className="btn btn-secondary fas fa-check-circle" type="button" onClick={addOptions}></button>
+                    <button className="btn btn-secondary fas fa-times-circle" type="button" onClick={resetValue}></button>
+                </div>
                 <button className="btn btn-secondary fas fa-angle-down" type="button" onClick={showOptions}></button>   
             </div>           
         </div>
@@ -19,6 +21,7 @@ const InputField = ({changeHandler, resetValue, values, showOptions, addOptions}
             <div className="options">
                 <span>Default Text One</span>
                 <span>Longer Default Text One</span>
+                <span>Very Long Default Text One</span>
                 <span>Very Very Long Default Text One</span>
             </div>
     </div>

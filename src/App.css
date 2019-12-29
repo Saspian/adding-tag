@@ -33,7 +33,7 @@
 .fa-times-circle:hover{
   cursor: pointer;
 }
-/*ADDING OPTIONS ANIMATIONS*/
+/*ADDING OPTIONS*/
 .selected-area{
   display: flex;
   flex-wrap: wrap;
@@ -49,6 +49,5 @@
   display: flex;
   padding:10px;
 }
-
 
 
