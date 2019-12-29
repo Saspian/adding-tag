@@ -17,20 +17,35 @@ const Form = () => {
         document.querySelector('.fa-times-circle').style.display = "none";
         document.querySelector('.fa-check-circle').style.display = "none";
     }
+    const createOptions = (option) => {
+        var newOptions = document.createElement('span');
+        newOptions.className = 'selectedOptions';
+        newOptions.appendChild(document.createTextNode(option));
+        document.querySelector('.selected-area').appendChild(newOptions);
+        var del = document.createElement('i');
+        del.className='delete fas fa-times selected';
+        del.appendChild(document.createTextNode(''));
+        newOptions.appendChild(del);
+        setValues({...values, q : ''});
+    }
 
     useEffect(()=>{
-        if(values.q==='') {
-            showWhenEmpty();
-        }else{
-           showWhenOptionTyped();
-        }
+        values.q==='' ? showWhenEmpty() : showWhenOptionTyped() 
+    })
+    useEffect(()=>{
         document.querySelectorAll('span').forEach(options => {
             options.addEventListener('click',()=>{
                 setValues({...values, q : options.textContent});
+                createOptions(options.textContent);
             })
         })
-    })
-
+        document.querySelector('.selected-area').addEventListener('click',(e)=>{
+            if(e.target.classList.contains('delete')){
+                var remove = e.target.parentElement;
+                document.querySelector('.selected-area').removeChild(remove);
+            }
+        })
+    },[])
     const showOptions = e => {
         document.querySelector('.options').classList.toggle('show-options');
     }
@@ -40,25 +55,12 @@ const Form = () => {
     }
     const clearOptions = e => {
         setValues({...values, q : ''});
-        if(values.q==='') {
-            showWhenEmpty();
-        }
+        if(values.q==='') showWhenEmpty();
     }
     const addOptions = () => {
-        var newOptions = document.createElement('span');
-        newOptions.className = 'selectedOptions';
-        newOptions.appendChild(document.createTextNode(values.q));
-        
-        document.querySelector('.selected-area').appendChild(newOptions);
-
-        var del = document.createElement('i');
-        del.className='fas fa-times selected';
-        del.appendChild(document.createTextNode(''));
-
-        newOptions.appendChild(del);
+        createOptions(values.q);
     }
     console.log(values,"@@");
-
     return (
         <div className="box">
             <Inputfield changeHandler={changeHandler} resetValue={clearOptions} values={values.q} showOptions={showOptions} addOptions={addOptions}/>
